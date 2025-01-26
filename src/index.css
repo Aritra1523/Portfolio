@@ -1,0 +1,815 @@
+/* Google Font CDN Link */
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #6e93f7;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4070f4;
+}
+/* navbar styling */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 998;
+  transition: all 0.3s ease;
+  font-family: "Ubuntu", sans-serif;
+}
+
+nav.sticky {
+  background: #4070f4;
+  padding: 13px 0;
+}
+
+nav .navbar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+nav .navbar .logo a {
+  font-weight: 500;
+  font-size: 35px;
+  color: #4070f4;
+}
+
+nav.sticky .navbar .logo a {
+  color: #fff;
+}
+
+nav .navbar .menu {
+  display: flex;
+  position: relative;
+}
+
+nav .navbar .menu li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.navbar .menu a {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2431;
+  padding: 6px 0;
+  transition: all 0.4s ease;
+}
+
+.navbar .menu a:hover {
+  color: #4070f4;
+}
+
+nav.sticky .menu a {
+  color: #fff;
+}
+
+nav.sticky .menu a:hover {
+  color: #0e2431;
+}
+
+.navbar .media-icons a {
+  color: #4070f4;
+  font-size: 18px;
+  margin: 0 6px;
+}
+
+nav.sticky .media-icons a {
+  color: #fff;
+}
+
+/* Side Navigation Menu Button CSS */
+nav .menu-btn,
+.navbar .menu .cancel-btn {
+  position: absolute;
+  color: #fff;
+  right: 30px;
+  top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+nav .menu-btn {
+  color: #4070f4;
+}
+
+nav.sticky .menu-btn {
+  color: #fff;
+}
+
+.navbar .menu .menu-btn {
+  color: #fff;
+}
+
+
+/* home section styling */
+.home{
+  height: 100vh;
+  width: 100%;
+  /*background: url("images/background.png") no-repeat;*/
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+}
+.home .home-content{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .text-one{
+  font-size: 25px;
+  color: #0E2431;
+}
+.home .text-two{
+  color: #0E2431;
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.home .text-three{
+  font-size: 40px;
+  margin: 5px 0;
+  color: #4070f4;
+}
+.home .text-four{
+  font-size: 23px;
+  margin: 5px 0;
+  color: #0E2431;
+}
+.home .button{
+  margin: 14px 0;
+}
+.home .button button{
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 25px;
+  font-weight: 400;
+  background: #4070f4;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+}
+.home .button button:hover{
+  border-color: #4070f4;
+  background-color: #fff;
+  color: #4070f4;
+}
+
+/* About Section Styling */
+/* Those Elements Where We Have Apply Same CSS,
+ I'm Selecting Directly 'Section Tag' and 'Class'  */
+section{
+  padding-top: 40px;
+}
+section .content{
+  width: 80%;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+}
+.about .about-details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section .title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+section .title span{
+  color: #0E2431;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+section .title span::before,
+section .title span::after{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #4070f4;
+  left: 0;
+  bottom: 0;
+}
+section .title span::after{
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about .about-details .left{
+  width: 45%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about .left img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+ 
+}
+.about .about-details .left:hover{
+  transform: scale(1.05);
+}
+.about-details .right{
+  width: 55%;
+}
+section  .topic{
+  color: #0E2431;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.about-details .right p{
+  text-align: justify;
+  color: #0E2431;
+}
+section .button{
+  margin: 16px 0;
+}
+section .button button{
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: #4070f4;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+section .button button:hover{
+  border-color: #4070f4;
+  background-color: #fff;
+  color: #4070f4;
+}
+
+section  .topic{
+  color: #0E2431;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.about-details .right p{
+  text-align: justify;
+  color: #0E2431;
+}
+section .button{
+  margin: 16px 0;
+}
+section .button button{
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: blue;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+section .button button:hover{
+  transform: translateY(-3px);
+  border-color: #4070f4;
+  background-color: #fff;
+  color: #4070f4;
+}
+
+ /* My Skills CSS */
+ .skills{
+   background: #F0F8FF;
+ }
+ .skills .content{
+   padding: 40px 0;
+ }
+ .skills .skills-details{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ .skills-details .text{
+   width: 50%;
+ }
+ .skills-details p{
+   color: #0E2431;
+   text-align: justify;
+ }
+.skills .skills-details .experience{
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+.skills-details .experience .num{
+  color: #0E2431;
+  font-size: 80px;
+}
+.skills-details .experience .exp{
+  color: #0E2431;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 6px;
+}
+.skills-details .boxes{
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.skills-details .box{
+  width: calc(100% / 2 - 20px);
+  margin: 20px 0;
+}
+.skills-details .boxes .topic{
+  font-size: 20px;
+  color: #0E2431;
+}
+.skills-details .boxes .per{
+  font-size: 50px;
+  color: #0E2431;
+}
+
+/* My Services CSS */
+/* Achievements.module.css */
+
+/* Achievements Section */
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Consistent spacing between boxes */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Add some padding around the boxes */
+}
+
+.box {
+  flex: 1 1 calc(33.333% - 40px); /* Default for 3 boxes per row with proper gap */
+  margin: 10px; /* Add consistent margins */
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 15px; /* Adjust padding for a balanced look */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for better contrast */
+  background: #ffffff; /* Add a white background for better visibility */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  background: #4070f4;
+  color: #fff;
+}
+
+.icon {
+  height: 60px; /* Slightly larger icon for emphasis */
+  width: 60px;
+  background: #4070f4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px; /* Increased icon size */
+  color: #fff;
+  margin: 0 auto 15px auto;
+  transition: all 0.3s ease;
+}
+
+.box:hover .icon {
+  background: #fff;
+  color: #4070f4;
+}
+
+.topic {
+  font-size: 22px; /* Increased font size for titles */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px; /* Larger font size for paragraph text */
+  color: #666; /* Neutral text color for readability */
+  line-height: 1.8; /* Better spacing between lines */
+  margin: 0;
+}
+
+.box:hover .topic,
+.box:hover p {
+  color: #fff; /* Change text color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .box {
+    flex: 1 1 calc(50% - 40px); /* 2 items per row on medium screens */
+  }
+
+  .topic {
+    font-size: 20px; /* Slightly smaller titles on medium screens */
+  }
+
+  p {
+    font-size: 15px; /* Adjust paragraph text size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    flex: 1 1 100%; /* 1 item per row on small screens */
+  }
+
+  .topic {
+    font-size: 18px; /* Smaller titles for small screens */
+  }
+
+  p {
+    font-size: 14px; /* Adjust paragraph text size for small screens */
+  }
+}
+
+
+/* Contact Me CSS */
+/* Contact Section */
+/* Contact Section */
+.contact {
+  background: #F0F8FF; /* Light, soothing background */
+  padding: 40px 20px; /* Add padding for spacing */
+}
+
+.contact .content {
+  max-width: 800px; /* Limit content width for readability */
+  margin: 0 auto; /* Center the content */
+}
+
+.contact .title {
+  font-size: 28px; /* Larger font for the title */
+  font-weight: bold;
+  margin-bottom: 30px; /* Add space below the title */
+  text-align: center;
+  color: #4070f4; /* Title color matching the theme */
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: center; /* Center items */
+  align-items: center;
+  row-gap: 30px; /* Vertical spacing between rows */
+  column-gap: 40px; /* Horizontal spacing between items */
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  font-size: 18px; /* Readable font size */
+  color: #333; /* Neutral text color */
+  background: #ffffff; /* Add a background for better contrast */
+  padding: 10px 15px; /* Add padding for spacing */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info span:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.contact-info i {
+  color: #4070f4; /* Icon color */
+  font-size: 22px; /* Icon size */
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #4070f4; /* Link color matching theme */
+  font-weight: 500; /* Slightly bold for emphasis */
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #1c3e72; /* Darker color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact .title {
+    font-size: 24px; /* Adjust title size for smaller screens */
+  }
+
+  .contact-info {
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Adjust gap for smaller screens */
+  }
+
+  .contact-info span {
+    font-size: 16px; /* Slightly smaller font size */
+    padding: 8px 12px; /* Adjust padding */
+  }
+}
+
+
+/*PROJECT SECTION*/
+
+.project .text .topic{
+  
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+/* General Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.project .text .topic {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.project .boxes {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Adds space between items */
+}
+
+.project .boxes .box {
+  width: 100%;
+  margin: 20px 0;
+  width: calc(33.333% - 20px); /* Default to 3 items per row */
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  cursor: default;
+  transition: all 0.4s ease;
+}
+
+.project .boxes .box:hover {
+  background: #4070f4;
+  color: #fff;
+}
+
+.project .boxes .box .icon {
+  height: 50px;
+  width: 50px;
+  background: #4070f4;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  color: #fff;
+  margin: 0 auto 10px auto;
+  transition: all 0.4s ease;
+}
+
+.project .boxes .box:hover .icon {
+  background-color: #fff;
+  color: #4070f4;
+}
+
+.project .boxes .box:hover .topic,
+.project .boxes .box:hover p {
+  color: #fff; /* Consolidated hover color */
+  transition: all 0.4s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .project .boxes .box {
+    width: calc(50% - 20px); /* Two items per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .project .boxes .box {
+    width: 100%; /* One item per row on smaller tablets */
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .project .boxes {
+    flex-direction: column; /* Stack all items vertically on very small screens */
+    align-items: center;
+  }
+}
+
+.thank {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #f5f5f5; /* Light background */
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+.thank h1 {
+  font-size: 48px; /* Large size for "THANK YOU" */
+  font-weight: bold;
+  color: #333; /* Dark gray color */
+  margin-bottom: 10px;
+}
+
+.thank p {
+  font-size: 18px; /* Normal size for other text */
+  color: #555; /* Lighter gray color */
+}
+
+.thank p:last-child {
+  font-size: 24px; /* Larger font for "VISIT AGAIN" */
+  font-weight: 500;
+  color: #007bff; /* Blue color */
+  margin-top: 10px;
+}
+
+.thank p:first-child, .thank p:nth-child(3) {
+  margin: 0; /* Remove empty paragraphs if needed */
+}
+
+/* Footer CSS */
+footer{
+  background: #4070f4;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+footer .text span{
+  font-size: 17px;
+  font-weight: 400;
+  color: #fff;
+}
+footer .text span a{
+  font-weight: 500;
+  color: #FFF;
+}
+footer .text span a:hover{
+  text-decoration: underline;
+}
+/* Scroll TO Top Button CSS */
+.scroll-button a{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: #4070f4;
+  padding: 7px 12px;;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+/* Responsive Media Query */
+@media (max-width: 1190px) {
+  section .content{
+    width: 85%;
+  }
+}
+@media (max-width: 1000px) {
+  .about .about-details{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .about .about-details .left{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .about-details .right{
+    width: 90%;
+    margin: 40px 0;
+  }
+  .services .boxes .box{
+    margin: 20px 0;
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 900px) {
+  .about .left img{
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 750px) {
+  nav .navbar{
+    width: 90%;
+  }
+  nav .navbar .menu{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background: #0E2431;
+    height: 100vh;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+  .navbar.active .menu{
+    left: 0;
+  }
+  nav .navbar .menu a{
+    font-size: 23px;
+    display: block;
+    color: #fff;
+    margin: 10px 0;
+  }
+  nav.sticky .menu a:hover{
+    color: #4070f4;
+  }
+  nav .navbar .media-icons{
+    display: none;
+  }
+  nav .menu-btn,
+  .navbar .menu .cancel-btn{
+    display: block;
+  }
+  .home .text-two{
+    font-size: 65px;
+  }
+  .home .text-three{
+    font-size: 35px;
+  }
+  .skills .skills-details{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .skills-details .text{
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .skills-details .boxes{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .services .boxes .box{
+    margin: 20px 0;
+    width: 100%;
+  }
+  .contact .text{
+    width: 100%;
+}
+}
+
+@media (max-width: 500px){
+  .home .text-two{
+    font-size: 55px;
+  }
+  .home .text-three{
+    font-size: 33px;
+  }
+  .skills-details .boxes .per{
+    font-size: 50px;
+    color: #4070f4;
+  }
+}
+.topic a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the color from the parent element (div) */
+}
+
+
+
+
