@@ -67,7 +67,6 @@ A professional IT company website showcasing services, portfolio, and client tes
 
 ## 📬 Contact Me
 
-💼 **Portfolio:** [my-portfolio123-kappa.vercel.app](https://my-portfolio123-kappa.vercel.app/)  
 📧 **Email:** [daritra385@gmail.com](mailto:daritra385@gmail.com)  
 🔗 **LinkedIn:** [linkedin.com/in/aritra-das-web-developer](https://www.linkedin.com/in/aritra-das-web-developer/)  
 💻 **LeetCode:** [leetcode.com/u/Aritra_Das9593](https://leetcode.com/u/Aritra_Das9593/)  
