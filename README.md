@@ -80,11 +80,7 @@ A professional IT company website showcasing services, portfolio, and client tes
 - Explore **MERN stack + AI APIs** for intelligent web solutions.  
 - Continuously grow as a **developer and learner** while contributing to meaningful projects.
 
----
 
-## 🖋️ License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
