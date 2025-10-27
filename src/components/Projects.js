@@ -1,66 +1,96 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { FaGlobe, FaGithub } from "react-icons/fa";
+import "./Projects.css";
+const Projects = () => {
+  const projects = [
+    {
+      title: "Portfolio Website",
+      link: "https://my-portfolio123-kappa.vercel.app/",
+      github: "https://github.com/Aritra1523/my-portfolio",
+      desc: "A personal portfolio built with React showcasing my skills, achievements, and contact form. Designed with responsiveness, interactivity, and smooth animations.",
+      tech: ["React", "CSS3", "JavaScript"],
+    },
+    {
+      title: "Infinity Insurance Solution",
+      link: "https://zingy-beignet-242c28.netlify.app/",
+      github: "https://github.com/Aritra1523/infinity-insurance",
+      desc: "An insurance management platform for clients, agents, and employees. Provides a clean UI with responsive layouts and intuitive navigation.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+    },
+      {
+      title: "Sallon App Management Web",
+      github: "https://github.com/Aritra1523/Saloon-App",
+      desc: "A professional IT service website featuring service sections, project showcases, testimonials, and partner logos with a sleek responsive design.",
+      tech: ["HTML", "CSS3", "NODE JS","EXPRESS JS","MONGOOSE"],
+    },
+    {
+      title: "IT Company Website",
+      link: "https://resonant-muffin-c3b4ff.netlify.app/",
+      github: "https://github.com/Aritra1523/it-company-site",
+      desc: "A professional IT service website featuring service sections, project showcases, testimonials, and partner logos with a sleek responsive design.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+    },
+  ];
 
-function Projects() {
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects-section">
       <div className="content">
-        <div className="title"><span>Projects</span></div>
-        <div className="boxes">
-          <div className="box">
-            <div className="icon">
-              <i className="fas fa-user"></i>
-            </div>
-            <div className="topic">
-              <a href="https://fanciful-gumdrop-fa3d8a.netlify.app/">
-                <h2>Portfolio</h2>
-              </a>
-            </div>
-            <p><strong>Project Description:</strong> Responsive Design: Implemented a responsive layout to ensure optimal viewing experience across various devices, including desktops, tablets, and smartphones. Interactive Elements: Added interactive features such as image sliders, modals, and animations using JavaScript. Project Showcase: Created dedicated sections to display project details, including descriptions, technologies used, and links to live demos or repositories. About Me Section: Developed a comprehensive "About Me" section detailing professional background, skills, and achievements. Contact Form: Integrated a functional contact form for visitors to reach out, utilizing JavaScript for form validation and handling. Styling: Utilized advanced CSS techniques, including flexbox, grid layouts, and custom animations, to enhance the visual appeal and user experience. Performance Optimization: Ensured fast load times and smooth performance by optimizing images, code, and leveraging browser caching.</p>
-            <p><strong>Technologies Used:</strong> React</p>
-          </div>
+        <motion.div
+          className="title"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span>Projects</span>
+        </motion.div>
 
-          <div className="box">
-            <div className="icon">
-              <i className="fas fa-briefcase"></i>
-            </div>
-            <div className="topic">
-              <a href="https://zingy-beignet-242c28.netlify.app/">
-                <h2>Infinity Insurance Solution</h2>
-              </a>
-            </div>
-            <p><strong>Project Description:</strong> Developed a comprehensive Insurance application to manage Clients, Agents, Employees, and their insurance policy details.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-              <li>Developed the front-end for Infinity Insurance Solutions, an insurance platform designed to provide users with an intuitive experience for managing their policies and exploring insurance products.</li>
-              <li>The website features a clean, user-friendly design with responsive layouts optimized for both desktop and mobile devices.</li>
-            </ul>
-            <p><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript</p>
-          </div>
+        <div className="projects-grid">
+          {projects.map((proj, index) => (
+            <motion.div
+              className="project-card"
+              key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.7 }}
+              whileHover={{ scale: 1.04 }}
+            >
+              <div className="project-header">
+                <h3>{proj.title}</h3>
+              </div>
 
-          <div className="box">
-            <div className="icon">
-              <i className="fas fa-briefcase"></i>
-            </div>
-            <div className="topic">
-              <a href="https://resonant-muffin-c3b4ff.netlify.app/">
-                <h2>A IT Company Website</h2>
-              </a>
-            </div>
-            <p><strong>Project Description:</strong> I developed the website for Aritra's IT Co., a company specializing in creating exceptional digital experiences. The site serves as a comprehensive platform showcasing the company's services, expertise, and portfolio. It features a clean, user-friendly design with responsive layouts optimized for both desktop and mobile devices.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-              <li>Service Overview: Detailed descriptions of services offered, including web design, app development, graphic design, and website hosting.</li>
-              <li>Portfolio Showcase: Presentation of completed projects, such as Infinity Insurance Solutions and an Amazon Clone Website, highlighting the company's capabilities.</li>
-              <li>Client Testimonials: Inclusion of positive feedback from clients to build credibility and trust.</li>
-              <li>Blog Section: Regularly updated articles providing insights into web design, digital marketing, and related topics.</li>
-              <li>Partner Logos: Display of collaborations with esteemed partners like Google, Microsoft Azure, and Razorpay.</li>
-            </ul>
-            <p><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript</p>
-          </div>
+              <p className="project-desc">{proj.desc}</p>
+
+              <div className="tech-stack">
+                {proj.tech.map((t, i) => (
+                  <span key={i} className="tech-item">{t}</span>
+                ))}
+              </div>
+
+              <div className="project-links">
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn live"
+                >
+                  <FaGlobe /> Live Demo
+                </a>
+                <a
+                  href={proj.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn github"
+                >
+                  <FaGithub /> GitHub
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Projects;

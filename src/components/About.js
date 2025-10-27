@@ -1,33 +1,81 @@
 import React from "react";
+import { motion } from "framer-motion";
+import "./About.css";
 
 function About() {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about-section">
       <div className="content">
-        <div className="title"><span>About Me</span></div>
+        <motion.div
+          className="title"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <span>About Me</span>
+        </motion.div>
+
         <div className="about-details">
-          <div className="left">
-          <img src="/Aritra photo.jpeg" alt="Aritra Das" />
+          <motion.div
+            className="left"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <img src="/Aritra photo.jpeg" alt="Aritra Das" />
+          </motion.div>
 
-          </div>
-          <div className="right">
-            <div className="topic">Designing Is My Passion</div>
+          <motion.div
+            className="right"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="topic">Transforming Ideas into Functional and Beautiful Websites</div>
             <p>
-             <p>   Hello! I'm Aritra Das, a passionate and dedicated frontend web developer with a strong foundation in Computer Science and Engineering. Currently, I am in my final year at Bengal Institute of Technology, where I've been honing my skills in creating responsive, user-friendly, and aesthetically pleasing web applications.</p>
+  Hello! I’m <span className="highlight">Aritra Das</span>, a passionate and dedicated 
+  <strong> Full Stack Web Developer</strong> with a strong foundation in 
+  <strong> Computer Science and Engineering</strong>. Currently, I’m in my recent passed out(2025 batch) at 
+  <strong> Bengal Institute of Technology</strong>, where I’ve been honing my skills in building 
+  responsive, user-friendly, and high-performing web applications.
+</p>
 
-             <p>My journey in web development started with a curiosity about how websites are built and evolved into a full-fledged passion for designing interactive and engaging user interfaces. Over the years, I've gained proficiency in HTML, CSS, JavaScript, and C,C++,JAVA. </p>
+<p>
+  My journey in web development began with a fascination for how websites work, which quickly evolved 
+  into a deep passion for mastering both the <strong>frontend</strong> and <strong>backend</strong> 
+  technologies. I’m proficient in <strong>HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB</strong>, 
+  and continuously explore modern frameworks and tools to expand my technical expertise.
+</p>
 
-             <p>In addition to my technical skills, I am a strong advocate for continuous learning and staying updated with the latest industry trends. This drive for knowledge has led me to participate in various projects and internships, where I've had the opportunity to collaborate with talented teams and contribute to real-world applications.</p>
+<p>
+  Beyond web development, I’m deeply interested in the <strong>future of technology</strong> — especially 
+  in fields like <strong>Artificial Intelligence (AI)</strong> and <strong>Generative AI (GenAI)</strong>. 
+  I’m passionate about learning how to integrate intelligent features into web applications to make them 
+  smarter, more interactive, and user-focused.
+</p>
 
-             <p>When I'm not coding, I enjoy exploring new design trends, working on personal projects, and contributing to open-source communities. I believe in the power of design to solve problems and create meaningful user experiences, and I strive to incorporate this belief into every project I undertake.</p>
-            </p>
+<p>
+  I strongly believe in <strong>continuous learning and innovation</strong>. Through academic projects, 
+  internships, and collaborations, I’ve developed scalable and engaging digital solutions that reflect 
+  creativity, problem-solving, and technical excellence.
+</p>
+
+<p>
+  Outside of coding, I love exploring new technologies, contributing to open-source projects, and staying 
+  updated with modern design and AI-driven development trends that shape the future of the web.
+</p>
+
             <div className="button">
-              <button>
-              <a href="/Aritra Das CV.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-
-              </button>
+              <a
+                href="Aritra Das CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="download-btn"
+              >
+                Download CV
+              </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,31 +1,69 @@
 import React from "react";
-
+import { motion } from "framer-motion";
+import { FaDesktop, FaAws, FaJava, FaGoogle } from "react-icons/fa";
+import "./Achievements.css";
 function Achievements() {
+  const achievements = [
+    {
+      title: "Web Development",
+      icon: <FaDesktop color="#00b4ff" />,
+      desc: "Crafting responsive, user-friendly, and high-performance websites using modern technologies.",
+      link: "/WEB DEVOLOPMENT CERIFIVATE.pdf",
+    },
+    {
+      title: "AWS Certified",
+      icon: <FaAws color="#ff9900" />,
+      desc: "Certified in AWS Cloud Solutions — skilled in deploying and managing scalable cloud applications.",
+      link: "/AWS CERIFICATE.pdf",
+    },
+    {
+      title: "Java Programming",
+      icon: <FaJava color="#f89820" />,
+      desc: "Strong foundation in Java, object-oriented programming, and backend development techniques.",
+      link: "/JAVA PROGRAMMING CERTIFICATE.pdf",
+    },
+    {
+      title: "Google IT Support",
+      icon: <FaGoogle color="#4285F4" />,
+      desc: "Trained in system administration, troubleshooting, and IT infrastructure support.",
+      link: "/GOOGLE IT SUPPORT CERTIFICATE.pdf",
+    },
+  ];
+
   return (
-    <section id="achievements" className="achievements">
+    <section id="achievements" className="achievements-section">
       <div className="content">
-        <div className="title"><span>Achievements</span></div>
-        <div className="boxes">
-          <div className="box">
-            <div className="icon"><i className="fas fa-desktop"></i></div>
-            <div className="topic"><a href=" /WEB DEVOLOPMENT CERIFIVATE.pdf" target="_blank" rel="noopener noreferrer">Web DEVOLOPMENT</a></div>
-            <p>I specialize in crafting responsive, user-friendly websites using modern technologies.</p>
-          </div>
-          <div className="box">
-            <div className="icon"><i className="fab fa-aws"></i></div>
-            <div className="topic"><a href=" /AWS CERIFICATE.pdf" target="_blank" rel="noopener noreferrer">AWS CERIFICATE</a></div>
-            <p>Certified in AWS Cloud solutions, skilled in deploying applications on the AWS platform.</p>
-          </div>
-          <div className="box">
-            <div className="icon"><i className="fab fa-java"></i></div>
-            <div className="topic"><a href=" /JAVA PROGRAMMING CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer">Java Programming</a></div>
-            <p>Proficient in Java programming, object-oriented principles, and problem-solving techniques.</p>
-          </div>
-          <div className="box">
-            <div className="icon"><i className="fab fa-google"></i></div>
-            <div className="topic"><a href=" /GOOGLE IT SUPPORT CERTIFICATE.pdf" target="_blank" >Google IT Support</a></div>
-            <p>Certified in troubleshooting, system administration, and network management.</p>
-          </div>
+        <motion.div
+          className="title"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span>Achievements</span>
+        </motion.div>
+
+        <div className="achievements-grid">
+          {achievements.map((achieve, index) => (
+            <motion.div
+              key={index}
+              className="achievement-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.8 }}
+            >
+              <div className="icon-container">{achieve.icon}</div>
+              <h3>{achieve.title}</h3>
+              <p>{achieve.desc}</p>
+              <a
+                href={achieve.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="view-btn"
+              >
+                View Certificate
+              </a>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

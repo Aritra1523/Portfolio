@@ -1,66 +1,54 @@
 import React, { useState, useEffect } from "react";
-
-
+import "./Navbar.css"; 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLinkClick = (section) => {
+    setActiveLink(section);
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className={isSticky ? "sticky" : ""}>
+    <nav className={`navbar-container ${isSticky ? "sticky" : ""}`}>
       <div className="navbar">
         <div className="logo">
-          <a href="#">My Portfolio</a>
+          <a href="#home">
+            <span className="gradient-text">Aritra Das</span>
+          </a>
         </div>
-        <ul className="menu">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#achievements">Achievements</a>
 
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-          
+        <ul className={`menu ${menuOpen ? "open" : ""}`}>
+          {["home", "about", "skills", "achievements", "projects", "contact"].map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item}`}
+                className={activeLink === item ? "active" : ""}
+                onClick={() => handleLinkClick(item)}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            </li>
+          ))}
         </ul>
+
         <div className="media-icons">
-          <a href="#">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-instagram"></i>
-          </a>
+          <a href="#"><i className="fab fa-facebook-f"></i></a>
+          <a href="#"><i className="fab fa-twitter"></i></a>
+          <a href="#"><i className="fab fa-instagram"></i></a>
         </div>
-        <div className="menu-btn">
-          <i className="fas fa-bars"></i>
+
+        <div className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+          <i className={`fas ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
         </div>
       </div>
     </nav>

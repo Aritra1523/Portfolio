@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.home {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle glowing circles in background */
+.home::before,
+.home::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+}
+.home::before {
+  width: 300px;
+  height: 300px;
+  background: #4070f4;
+  top: 10%;
+  left: 15%;
+}
+.home::after {
+  width: 400px;
+  height: 400px;
+  background: #f4a940;
+  bottom: 10%;
+  right: 15%;
+}
+
+/* Glass content box */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Text styling */
+.text-one {
+  font-size:50px;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+.text-two {
+  font-size: 70px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #ffdd00, #ff7b00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-three {
+  font-size: 36px;
+  color: #a8c0ff;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.text-four {
+  font-size: 22px;
+  color: #ffffffcc;
+  margin-top: 10px;
+}
+
+.role {
+  color: #5ec8f8;
+}
+
+.location {
+  color: #ffd580;
+}
+
+/* Button */
+.button {
+  margin-top: 30px;
+}
+
+.button button {
+  background: linear-gradient(90deg, #4070f4, #00d4ff);
+  color: #fff;
+  font-size: 22px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.button button:hover {
+  background: transparent;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .text-two {
+    font-size: 48px;
+  }
+
+  .text-three {
+    font-size: 28px;
+  }
+
+  .glass {
+    padding: 2rem;
+  }
+}

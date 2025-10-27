@@ -1,0 +1,94 @@
+.skills-section {
+  background: linear-gradient(135deg, #0e1f2f, #1e2b40);
+  color: #e6e6e6;
+  padding: 80px 0;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.skills-section .title span {
+  font-size: 2.3rem;
+  font-weight: 700;
+  position: relative;
+  color: #ffffff;
+}
+
+.skills-section .title span::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background: #4070f4;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.intro-text {
+  width: 70%;
+  margin: 20px auto 50px;
+  color: #c8d2e0;
+  line-height: 1.8;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  width: 85%;
+  margin: auto;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(64, 112, 244, 0.15);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(64, 112, 244, 0.3);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.skill-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4070f4, #00b4ff);
+  border-radius: 10px;
+}
+
+.percent {
+  font-size: 0.9rem;
+  color: #ffb800;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .intro-text {
+    width: 90%;
+  }
+}
