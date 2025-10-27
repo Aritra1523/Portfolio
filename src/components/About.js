@@ -54,16 +54,7 @@ function About() {
   smarter, more interactive, and user-focused.
 </p>
 
-<p>
-  I strongly believe in <strong>continuous learning and innovation</strong>. Through academic projects, 
-  internships, and collaborations, I’ve developed scalable and engaging digital solutions that reflect 
-  creativity, problem-solving, and technical excellence.
-</p>
 
-<p>
-  Outside of coding, I love exploring new technologies, contributing to open-source projects, and staying 
-  updated with modern design and AI-driven development trends that shape the future of the web.
-</p>
 
             <div className="button">
               <a

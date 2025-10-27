@@ -6,8 +6,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Portfolio Website",
-      link: "https://my-portfolio123-kappa.vercel.app/",
-      github: "https://github.com/Aritra1523/my-portfolio",
+      link: "https://portfolio-lovat-iota-76.vercel.app/",
+      github: "https://github.com/Aritra1523/Portfolio",
       desc: "A personal portfolio built with React showcasing my skills, achievements, and contact form. Designed with responsiveness, interactivity, and smooth animations.",
       tech: ["React", "CSS3", "JavaScript"],
     },
