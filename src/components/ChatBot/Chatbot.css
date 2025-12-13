@@ -1,0 +1,232 @@
+/* Chatbot.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Toggle Button --- */
+.chat-toggle {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 12px 28px rgba(0, 123, 255, 0.5);
+}
+
+/* --- Chat Window --- */
+.chat-window {
+  position: absolute;
+  bottom: 90px;
+  right: 0;
+  width: 380px; /* Slightly wider */
+  height: 600px; /* Taller */
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- Header --- */
+.chat-header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 18px 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Body (Message Area) --- */
+.chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8f9fa; /* Very light grey background */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+/* --- MESSAGES STYLING (Major Improvements) --- */
+.message {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 85%;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 1. AI Bot Message Style */
+.message.bot {
+  background: #ffffff;
+  color: #1f2937; /* Dark grey text */
+  align-self: flex-start;
+  border-bottom-left-radius: 4px; /* Distinct shape */
+  border: 1px solid #e5e7eb;
+}
+
+/* Better formatting for lists inside AI responses */
+.message.bot ul, .message.bot ol {
+  margin: 5px 0 5px 20px;
+  padding: 0;
+}
+.message.bot li {
+  margin-bottom: 4px;
+}
+.message.bot strong {
+  color: #0056b3;
+}
+
+/* 2. User Message Style */
+.message.user {
+  background: linear-gradient(135deg, #007bff, #0062cc);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* --- Typing Indicator Animation --- */
+.message.bot.typing {
+  font-style: italic;
+  color: #6c757d;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* --- Options & Chips --- */
+.options-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align options to right like quick replies */
+  gap: 10px;
+}
+
+.button-group, .chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.button-group button, .chip {
+  padding: 10px 16px;
+  background: white;
+  border: 1px solid #007bff;
+  color: #007bff;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.button-group button:hover, .chip:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* --- Input Area --- */
+.chat-input-area {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 25px;
+  outline: none;
+ background: #ffffff;  /* Ensures background is white */
+  color: #1f2937;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.chat-input-area input:focus {
+  border-color: #007bff;
+  background: white;
+}
+
+.chat-input-area button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.chat-input-area button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}

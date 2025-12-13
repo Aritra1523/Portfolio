@@ -8,7 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import IntroScreen from "./components/IntroScreen";
-
+import ChatBot from "./components/ChatBot/Chatbot"
 function App() {
   const [showIntro, setShowIntro] = useState(true);
 
@@ -28,6 +28,7 @@ function App() {
           <Projects />
           <Contact />
           <Footer />
+          <ChatBot/>
         </>
       )}
     </div>
