@@ -32,11 +32,12 @@
 
 /* --- Chat Window --- */
 .chat-window {
-  position: absolute;
+  width: 90vw;        /* responsive width */
+  max-width: 380px;   /* max for large screens */
+  height: 90vh;       /* responsive height */
+  max-height: 600px;
   bottom: 90px;
   right: 0;
-  width: 380px; /* Slightly wider */
-  height: 600px; /* Taller */
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
@@ -68,12 +69,12 @@
 /* --- Body (Message Area) --- */
 .chat-body {
   flex: 1;
-  padding: 20px;
+  padding: 10px 15px;
   overflow-y: auto;
-  background: #f8f9fa; /* Very light grey background */
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   scroll-behavior: smooth;
 }
 
@@ -89,11 +90,11 @@
   border-radius: 10px;
 }
 
-/* --- MESSAGES STYLING (Major Improvements) --- */
+/* --- Messages --- */
 .message {
   padding: 12px 16px;
   border-radius: 18px;
-  max-width: 85%;
+  max-width: calc(100% - 20px); /* responsive */
   word-wrap: break-word;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -107,16 +108,15 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 1. AI Bot Message Style */
+/* AI Bot Message */
 .message.bot {
   background: #ffffff;
-  color: #1f2937; /* Dark grey text */
+  color: #1f2937;
   align-self: flex-start;
-  border-bottom-left-radius: 4px; /* Distinct shape */
+  border-bottom-left-radius: 4px;
   border: 1px solid #e5e7eb;
 }
 
-/* Better formatting for lists inside AI responses */
 .message.bot ul, .message.bot ol {
   margin: 5px 0 5px 20px;
   padding: 0;
@@ -128,7 +128,7 @@
   color: #0056b3;
 }
 
-/* 2. User Message Style */
+/* User Message */
 .message.user {
   background: linear-gradient(135deg, #007bff, #0062cc);
   color: white;
@@ -137,7 +137,7 @@
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
-/* --- Typing Indicator Animation --- */
+/* Typing Indicator */
 .message.bot.typing {
   font-style: italic;
   color: #6c757d;
@@ -153,19 +153,19 @@
   margin-top: 5px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align options to right like quick replies */
-  gap: 10px;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .button-group, .chip-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   justify-content: flex-end;
 }
 
 .button-group button, .chip {
-  padding: 10px 16px;
+  padding: 8px 14px;
   background: white;
   border: 1px solid #007bff;
   color: #007bff;
@@ -186,21 +186,21 @@
 
 /* --- Input Area --- */
 .chat-input-area {
-  padding: 15px;
+  padding: 12px;
   background: white;
   border-top: 1px solid #eee;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
 }
 
 .chat-input-area input {
   flex: 1;
-  padding: 12px 15px;
+  padding: 10px 14px;
   border: 1px solid #e5e7eb;
   border-radius: 25px;
   outline: none;
- background: #ffffff;  /* Ensures background is white */
+  background: #ffffff;
   color: #1f2937;
   font-size: 0.95rem;
   transition: border-color 0.2s;
@@ -229,4 +229,27 @@
 .chat-input-area button:hover {
   background: #0056b3;
   transform: scale(1.05);
+}
+
+/* --- Mobile Specific Fixes --- */
+@media (max-width: 420px) {
+  .chat-window {
+    width: 95vw;
+    height: 85vh;
+    bottom: 70px;
+  }
+
+  .chat-input-area input {
+    font-size: 0.9rem;
+  }
+
+  .button-group button, .chip {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .chat-body {
+    padding: 8px 10px;
+    gap: 10px;
+  }
 }
