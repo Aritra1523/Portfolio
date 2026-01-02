@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { aritraData, initialOptions, menuOptions } from './chatbotData';
 import { MessageCircle, X, Send } from 'lucide-react';
 import './Chatbot.css';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+//import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Initialize API
-const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); 
+//const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
+//const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); 
 
 // Initialize Sound
 const notificationSound = new Audio("/sound-pop.mp3");
@@ -100,35 +100,42 @@ const Chatbot = () => {
   };
 
   const handleSend = async () => {
-    if (!userInput.trim()) return;
+  if (!userInput.trim()) return;
 
-    playSound(); // Play sound when User sends message
+  playSound();
 
-    const newMessages = [...messages, { sender: 'user', text: userInput }];
-    setMessages(newMessages);
-    setUserInput('');
-    setIsTyping(true);
+  setMessages(prev => [...prev, { sender: "user", text: userInput }]);
+  setIsTyping(true);
+  setUserInput("");
 
-    try {
-        const systemPrompt = `You are a helpful portfolio assistant for Aritra. 
-        Here is some context about Aritra: 
-        ${JSON.stringify(aritraData)} 
-        Answer the user's question based on this data or general knowledge. Be polite and concise.`;
+  try {
+    const res = await fetch("http://localhost:5000/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: userInput,
+        context: aritraData,
+      }),
+    });
 
-        const result = await model.generateContent(systemPrompt + "\nUser Question: " + userInput);
-        const response = await result.response;
-        const text = response.text();
+    const data = await res.json();
 
-        setMessages(prev => [...prev, { sender: 'bot', text: text }]);
-        playSound(); // Play sound when AI responds
-    } catch (error) {
-        console.error("AI Error:", error);
-        setMessages(prev => [...prev, { sender: 'bot', text: "I'm having trouble connecting to the AI right now." }]);
-        playSound();
-    } finally {
-        setIsTyping(false);
-    }
-  };
+    setMessages(prev => [
+      ...prev,
+      { sender: "bot", text: data.reply },
+    ]);
+
+    playSound();
+  } catch (err) {
+    setMessages(prev => [
+      ...prev,
+      { sender: "bot", text: "Server error. Please try again." },
+    ]);
+  } finally {
+    setIsTyping(false);
+  }
+};
+
 
   return (
     <div className="chatbot-wrapper">
